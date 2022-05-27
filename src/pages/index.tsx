@@ -1,4 +1,5 @@
 import * as React from "react"
+import {Link} from "gatsby"
 
 // styles
 const pageStyles = {
@@ -123,6 +124,8 @@ const links = [
       "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
     color: "#663399",
   },
+
+    
 ]
 
 // markup
@@ -136,6 +139,7 @@ const IndexPage = () => {
         <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
         🎉🎉🎉
       </h1>
+      <Link to="/about">THIS IS THE LINK TO ABOUT PAGE</Link>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
         update in real-time. 😎
