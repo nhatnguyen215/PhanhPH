@@ -1,59 +1,56 @@
 import React, { Fragment } from 'react';
 import Sticky from 'react-stickynode';
 import { ThemeProvider } from 'styled-components';
-import { Modal } from '@redq/reuse-modal';
-import { agencyTheme } from 'common/theme/agency';
-import { ResetCSS } from 'common/assets/css/style';
-import { GlobalStyle, AgencyWrapper } from 'containers/Agency/agency.style';
-import Navbar from 'containers/Agency/Navbar';
-import BannerSection from 'containers/Agency/BannerSection';
-import FeatureSection from 'containers/Agency/FeatureSection';
-import AboutUsSection from 'containers/Agency/AboutUsSection';
-import WorkHistory from 'containers/Agency/WorkHistory';
-import BlogSection from 'containers/Agency/BlogSection';
-import TestimonialSection from 'containers/Agency/TestimonialSection';
-import TeamSection from 'containers/Agency/TeamSection';
-import VideoSection from 'containers/Agency/VideoSection';
-import FaqSection from 'containers/Agency/FaqSection';
-import NewsletterSection from 'containers/Agency/NewsletterSection';
-import QualitySection from 'containers/Agency/QualitySection';
-import Footer from 'containers/Agency/Footer';
+import { interiorTheme } from 'common/theme/interior';
 import { DrawerProvider } from 'common/contexts/DrawerContext';
-import '@redq/reuse-modal/es/index.css';
+import Navbar from 'containers/Interior/Navbar';
+import Banner from 'containers/Interior/Banner';
+import Feature from 'containers/Interior/Feature';
+import AboutUs from 'containers/Interior/AboutUs';
+import Project from 'containers/Interior/Project';
+import Team from 'containers/Interior/Team';
+import News from 'containers/Interior/News';
+import Testimonial from 'containers/Interior/Testimonial';
+import Gallery from 'containers/Interior/Gallery';
+import Footer from 'containers/Interior/Footer';
+import { ResetCSS } from 'common/assets/css/style';
+import {
+  GlobalStyle,
+  InteriorWrapper,
+  ContentWrapper,
+} from 'containers/Interior/interior.style';
 import Seo from 'components/seo';
 
-const Agency = () => {
+const Interior = () => {
   return (
-    <ThemeProvider theme={agencyTheme}>
+    <ThemeProvider theme={interiorTheme}>
       <Fragment>
-        <Seo title="Agency" />
-        <Modal />
+        <Seo title="Interior" />
         <ResetCSS />
         <GlobalStyle />
-        {/* End of agency head section */}
-        {/* Start agency wrapper section */}
-        <AgencyWrapper>
+
+        {/* Start writing your markup from here. */}
+        <InteriorWrapper>
           <Sticky top={0} innerZ={9999} activeClass="sticky-nav-active">
             <DrawerProvider>
               <Navbar />
             </DrawerProvider>
           </Sticky>
-          <BannerSection />
-          <FeatureSection />
-          <AboutUsSection />
-          <WorkHistory />
-          <BlogSection />
-          <QualitySection />
-          <VideoSection />
-          <TestimonialSection />
-          <TeamSection />
-          <FaqSection />
-          <NewsletterSection />
+          <ContentWrapper>
+            <Banner />
+            <Feature />
+            <AboutUs />
+            <Project />
+            <Team />
+            <News />
+            <Testimonial />
+            <Gallery />
+          </ContentWrapper>
           <Footer />
-        </AgencyWrapper>
-        {/* End of agency wrapper section */}
+        </InteriorWrapper>
+        {/* End of markup section. */}
       </Fragment>
     </ThemeProvider>
   );
 };
-export default Agency;
+export default Interior;
